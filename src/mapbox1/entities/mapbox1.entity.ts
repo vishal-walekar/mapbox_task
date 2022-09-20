@@ -11,7 +11,7 @@ export class Mapbox1 {
 
     @Column()
     long:string;
-
+    
     @Column()
     name:string;
 
