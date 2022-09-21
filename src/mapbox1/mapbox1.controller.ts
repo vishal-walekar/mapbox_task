@@ -72,19 +72,19 @@ export class Mapbox1Controller {
       type: 'Point',
       coordinates: [parsedCsv.data[0].lat, parsedCsv.data[0].long],
     };
-    //for each loop for add many locations
-    // parsedCsv.data.forEach((element) => {
-    //   var point = {
-    //     type: 'Point',
-    //     coordinates: [element.lat, element.lon],
-    //   };
+    // for each loop for add many locations
+    parsedCsv.data.forEach((element) => {
+      var point = {
+        type: 'Point',
+        coordinates: [element.lat, element.long],
+      };
 
     const loadData = {
-      id: parsedCsv.data[0].id,
-      lat: parsedCsv.data[0].lat,
-      long: parsedCsv.data[0].long,
-      name: parsedCsv.data[0].name,
-      city_name: parsedCsv.data[0].city_name,
+      id: element.id,
+      lat: element.lat,
+      long:element.long,
+      name: element.name,
+      city_name: element.city_name,
       location:point,
     };
     console.log(loadData);
@@ -97,7 +97,7 @@ export class Mapbox1Controller {
       },
     };
     return response;
-    
+  });
   }
   // @Post('file')
   //   @UseInterceptors(
@@ -124,9 +124,6 @@ export class Mapbox1Controller {
   //   const file = createReadStream(join(process.cwd(), './mapbox/1(1).csv'));
   //   console.log(file);
   // }
-
-
-
   // @Post()
   // create(@Body() createMapbox1Dto: CreateMapbox1Dto) {
   //   return this.mapbox1Service.create(createMapbox1Dto);
